@@ -1,3 +1,9 @@
+//Team Los Mazetros
+//Eric Zhang, Tiffany Moi, Mark Shafran
+//Hw12 -- Thinkers of the Corn
+//2017-03-03
+
+
 /***
  * SKEELTON for class 
  * MazeSolver
