@@ -108,29 +108,40 @@ class MazeSolver
      *********************************************/
     public void solve( int x, int y ) {
 
-	delay(50); //slow it down enough to be followable
-	maze[y][x] = HERO;
+	delay(500); //slow it down enough to be followable
+	System.out.println(this);
+	System.out.println(x+", "+y);
+	if (maze[x][y] == EXIT) {
+	    solved = true;
+	}
+	else {
+	    maze[x][y] = HERO;
+	}
+
 	//primary base case
-	if ( maze[y][x+1]==PATH ) {
-	    maze[y][x] = VISITED_PATH;
+	if (onPath(x+1,y)) {
+	    maze[x][y] = VISITED_PATH;
 	    solve(x+1,y);
 	}
 	//other base case(s)...
-	else if ( maze[y][x-1]==PATH ) {
-	    maze[y][x] = VISITED_PATH;
-	    solve(x-1,y);
-	}
-	else if ( maze[y+1][x]==PATH ) {
-	    maze[y][x] = VISITED_PATH;
+	else if (onPath(x,y+1)) {
+	    maze[x][y] = VISITED_PATH;
 	    solve(x,y+1);
 	}
-	else if ( maze[y-1][x]==PATH) {
-	    maze[y][x] = VISITED_PATH;
+	else if (onPath(x-1,y)) {
+	    maze[x][y] = VISITED_PATH;
+	    solve(x-1,y);
+	}
+	else if (onPath(x,y-1)) {
+	    maze[x][y] = VISITED_PATH;
 	    solve(x,y-1);
 	}
 	//recursive reduction
 	else {
-	    maze[y][x] = PATH;
+	    maze[x][y] = PATH;
+	}
+	if (solved) {
+	    return;
 	}
     }
 
@@ -156,7 +167,7 @@ public class Maze
 
 	    //drop hero into the maze (coords must be on path)
 	    //comment next line out when ready to randomize startpos
-	    ms.solve( 4, 3 ); 
+	    ms.solve( 1, 1 ); 
 
 	    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	    //drop our hero into maze at random location on path
@@ -170,7 +181,7 @@ public class Maze
 	    }
 
 	    ms.solve( startX, startY );
-	    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 	} catch( Exception e ) { 
 	    System.out.println( "Error reading input file." );
 	    System.out.println( "Usage: java Maze <filename>" ); 
