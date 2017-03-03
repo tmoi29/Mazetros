@@ -145,7 +145,26 @@ class MazeSolver
 	//recursive reduction
 	else {
 	    maze[x][y] = PATH;
+	    /*//primary base case
+	    if (maze[x+1][y] == VISITED_PATH) {
+		maze[x+1][y] = WALL;
+		solve(x+1,y);
+	    }
+	    //other base case(s)...
+	    else if (maze[x][y+1] == VISITED_PATH) {
+		maze[x][y+1] = WALL;
+		solve(x,y+1);
+	    }
+	    else if (maze[x-1][y] == VISITED_PATH) {
+		maze[x-1][y] = WALL;
+		solve(x-1,y);
+	    }
+	    else if (maze[x][y-1] == VISITED_PATH) {
+		maze[x][y-1] = WALL;
+		solve(x,y-1);
+	    }*/
 	}
+    
 	if (solved) {
 	    return;
 	}
