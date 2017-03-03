@@ -109,24 +109,28 @@ class MazeSolver
     public void solve( int x, int y ) {
 
 	delay(50); //slow it down enough to be followable
-
+	maze[y][x] = HERO;
 	//primary base case
-	if ( /* YOUR AMAZEING CODE HERE */ ) {
-	    /* YOUR AMAZEING CODE HERE */
+	if ( maze[y][x+1]==PATH ) {
+	    maze[y][x] = VISITED_PATH;
+	    solve(x+1,y);
 	}
 	//other base case(s)...
-	else if ( /* YOUR AMAZEING CODE HERE */ ) {
-	    /* YOUR AMAZEING CODE HERE */
+	else if ( maze[y][x-1]==PATH ) {
+	    maze[y][x] = VISITED_PATH;
+	    solve(x-1,y);
 	}
-	else if ( /* YOUR AMAZEING CODE HERE */ ) {
-	    /* YOUR AMAZEING CODE HERE */
+	else if ( maze[y+1][x]==PATH ) {
+	    maze[y][x] = VISITED_PATH;
+	    solve(x,y+1);
 	}
-	else if ( /* YOUR AMAZEING CODE HERE */ ) {
-	    /* YOUR AMAZEING CODE HERE */
+	else if ( maze[y-1][x]==PATH) {
+	    maze[y][x] = VISITED_PATH;
+	    solve(x,y-1);
 	}
 	//recursive reduction
 	else {
-	    /* YOUR AMAZEING CODE HERE */
+	    maze[y][x] = PATH;
 	}
     }
 
