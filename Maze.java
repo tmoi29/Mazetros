@@ -113,16 +113,16 @@ class MazeSolver
      * @param y starting y-coord, measured from top
      *********************************************/
     public void solve( int x, int y ) {
-
+	maze[x][y] = HERO;
+	if (solved) {
+	    return;
+	}
 	delay(500); //slow it down enough to be followable
 	if (maze[x+1][y] == EXIT
 	    || maze[x-1][y] == EXIT
 	    || maze[x][y+1] == EXIT
 	    || maze[x][y-1] == EXIT) {
 	    solved = true;
-	}
-	else {
-	    maze[x][y] = HERO;
 	}
 	System.out.println(this);
 	System.out.println(x+", "+y);
