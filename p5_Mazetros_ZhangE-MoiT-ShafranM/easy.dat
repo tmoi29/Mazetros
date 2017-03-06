@@ -1,7 +1,2 @@
-       
- @ #   
- # #   
- #### 
- ## #  
-    #$ 
-       
+Error reading input file.
+Usage: java Maze <filename>
