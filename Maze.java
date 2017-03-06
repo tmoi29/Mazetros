@@ -15,7 +15,7 @@
  * (mazefile is ASCII representation of maze, using symbols below)
  * 
  * ALGORITHM for finding exit from starting position:
- *  <INSERT YOUR SUMMARY OF ALGO HERE>
+ *  Attempt all possible paths from the position until one is found.
  ***/
 
 //enable file I/O
