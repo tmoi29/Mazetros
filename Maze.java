@@ -115,44 +115,45 @@ class MazeSolver
     public void solve( int x, int y ) {
 
 	delay(500); //slow it down enough to be followable
-	System.out.println(this);
-	System.out.println(x+", "+y);
-	if (maze[y][x] == EXIT) {
+	if (maze[x][y] == EXIT) {
 	    solved = true;
 	}
 	else {
-	    maze[y][x] = HERO;
+	    maze[x][y] = HERO;
 	}
 	System.out.println(this);
 	System.out.println(x+", "+y);
 
 	//primary base case
 	if (onPath(x+1,y)) {
-	    maze[y][x] = VISITED_PATH;
+	    maze[x][y] = VISITED_PATH;
+	    //System.out.println("a");
 	    solve(x+1,y);
 	}
 	//other base case(s)...
-	else if (onPath(x,y+1)) {
-	    maze[y][x] = VISITED_PATH;
+	if (onPath(x,y+1)) {
+	    maze[x][y] = VISITED_PATH;
+	    //System.out.println("b");
 	    solve(x,y+1);
 	}
-	else if (onPath(x-1,y)) {
-	    maze[y][x] = VISITED_PATH;
+	if (onPath(x-1,y)) {
+	    maze[x][y] = VISITED_PATH;
+	    //System.out.println("c");
 	    solve(x-1,y);
 	}
-	else if (onPath(x,y-1)) {
-	    maze[y][x] = VISITED_PATH;
+	if (onPath(x,y-1)) {
+	    maze[x][y] = VISITED_PATH;
 	    solve(x,y-1);
 	}
 	//recursive reduction
         
-	maze[y][x] = PATH;
+	maze[x][y] = PATH;
 	
     
     }
 
     //accessor method to help with randomized drop-in location
-    public boolean onPath( int x, int y) { return maze[y][x] == PATH; }
+    public boolean onPath( int x, int y) { return maze[x][y] == PATH; }
 
 }//end class MazeSolver
 
