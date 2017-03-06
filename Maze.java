@@ -115,7 +115,10 @@ class MazeSolver
     public void solve( int x, int y ) {
 
 	delay(500); //slow it down enough to be followable
-	if (maze[x][y] == EXIT) {
+	if (maze[x+1][y] == EXIT
+	    || maze[x-1][y] == EXIT
+	    || maze[x][y+1] == EXIT
+	    || maze[x][y-1] == EXIT) {
 	    solved = true;
 	}
 	else {
